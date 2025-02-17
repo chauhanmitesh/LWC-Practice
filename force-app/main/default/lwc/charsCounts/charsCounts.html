@@ -1,0 +1,21 @@
+<!--
+LWC Practice Question - Day 3
+Create an LWC component that allows users to enter text in an input field and dynamically counts the number of characters typed.
+
+Requirements:
+Display an input field where the user can type.
+Show the live character count below the input field.
+If the character count exceeds 50, display a warning message in red (e.g., "Character limit exceeded!").
+-->
+
+<template>
+<lightning-card title="Character counts">
+    <div class="slds-p-around_medium">
+        <lightning-input onchange={handleInputChange}></lightning-input>
+        <p>Number of characters : {countChars}</p>
+        <template if:true={limitExceeded}>
+            <p style="color:red">!Warninig. Character limit is of 50 characters.</p>
+        </template>
+    </div>
+</lightning-card>    
+</template>
