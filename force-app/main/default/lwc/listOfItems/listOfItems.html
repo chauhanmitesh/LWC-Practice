@@ -1,0 +1,16 @@
+<template>
+<lightning-card title="List of Fruits">
+    <div class="slds-p-around_medium">
+        <ul class="slds-list_vertical">
+            <template for:each={itemList} for:item="item">
+                <li key={item.id} class="slds-m-bottom_small">
+                    <div class="slds-grid slds-align-items-center slds-p-around_x-small">
+                        <p>{item.Name}</p>
+                        <lightning-button label="Remove" data-id={item.id} onclick={removeItem} class=""></lightning-button>
+                    </div>
+                </li>
+            </template>
+        </ul>
+    </div>
+</lightning-card>
+</template>
