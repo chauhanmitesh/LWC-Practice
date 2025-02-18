@@ -1,0 +1,30 @@
+<!--
+LWC Practice Question - Day 4
+Problem Statement:
+Create an LWC component that allows users to add items to a dynamic list.
+
+Requirements:
+Display an input field where users can type an item name.
+Have an "Add" button, which adds the typed item to a list below.
+Display all added items in a list format.
+If the user clicks "Remove" next to an item, it should be removed from the list.
+If the input field is empty, the "Add" button should be disabled.
+-->
+
+<template>
+    <lightning-card title="Add Item to The List">
+        <div class="slds-p-around_medium">
+            <lightning-input type="text" label="Enter Item" onchange={handleInputChange}></lightning-input>
+            <lightning-button label="Add" class="slds-m-left_small" onclick={addItemToList} disabled={isDisabled}></lightning-button>
+        </div>
+        <div class="slds-p-around_medium">
+            <ul class="slds-list_vertical">
+                <template for:each={itemList} for:item="item">
+                    <li key={item.Id} class="slds-m-vertical_xx-small">
+                        <span>{item.Name}</span> <lightning-button label="Remove" data-id={item.Id} onclick={handleRemoveItem} class="slds-m-left_small"></lightning-button>
+                    </li>
+                </template>                
+            </ul>
+        </div>
+    </lightning-card>
+</template>
