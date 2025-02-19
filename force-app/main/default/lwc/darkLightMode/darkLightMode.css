@@ -1,0 +1,13 @@
+.dark-mode{
+    background-color: black;
+    color:white;
+    min-height: 200px; /* Ensures visibility */
+    padding: 10px;
+}
+
+.light-mode{
+    background-color: white;
+    color:black;
+    min-height: 200px; /* Ensures visibility */
+    padding: 10px;  
+}
