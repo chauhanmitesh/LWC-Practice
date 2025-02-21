@@ -1,0 +1,22 @@
+<!--
+LWC Practice Question - Day 6
+Problem Statement:
+Create an LWC component that allows a user to enter a sentence, and the component should display the word count dynamically.
+
+Requirements:
+Use a lightning-input to allow the user to enter text.
+Display the word count below the input field.
+If the user enters an empty string, display "No words entered" instead of 0.
+-->
+
+
+<template>
+<lightning-card title="Word Counts">
+    <div class="slds-p-around_medium">
+        <lightning-input onchange={handleInputChange}></lightning-input>
+    </div>
+    <div>
+        <p>{counts}</p>
+    </div>
+</lightning-card>    
+</template>
