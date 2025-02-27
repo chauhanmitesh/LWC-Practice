@@ -1,0 +1,30 @@
+<template>
+    <lightning-card>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Favorite</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <template for:each={itemlst} for:item="item">
+                        <tr key={item.id}>
+                            <td>
+                                <strong if:true={item.isFavorite}>{item.Name}</strong>
+                                <span if:false={item.isFavorite}>{item.Name}</span>
+                            </td>
+                            <td>{item.Price}</td>
+                            <td>
+                                <lightning-button label={item.buttonLabel} data-id={item.id} onclick={toggleFavorite}></lightning-button>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>
