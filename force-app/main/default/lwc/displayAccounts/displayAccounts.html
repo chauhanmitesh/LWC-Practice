@@ -1,0 +1,18 @@
+<template>
+<lightning-card title="Accounts">
+    <div>
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="acc">
+                <p key={acc.Id}>{acc.Name}</p>
+            </template>
+        </template>
+        <template if:true={error}>
+            <p>{error}</p>
+        </template>
+    </div>
+    <div>
+        <p>Display accounts</p>
+        <lightning-button label="Click" onclick={loadAccounts}></lightning-button>
+    </div>
+</lightning-card>    
+</template>
