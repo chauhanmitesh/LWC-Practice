@@ -17,3 +17,6 @@ Each problem is inside a separate LWC component folder. The folder includes:
     ✅ Custom Events & Parent-Child Communication
     ✅ Debouncing & Performance Optimization
     ✅ CSS Styling & SLDS Integration
+
+
+🚀 Happy Coding & Keep Practicing!
