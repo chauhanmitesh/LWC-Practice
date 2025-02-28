@@ -9,11 +9,11 @@ Each problem is inside a separate LWC component folder. The folder includes:
     <component>.css → External design file(optional)
 
 # Topics Covered
-✅ Data Binding & Event Handling
-✅ Conditional Rendering & Loops
-✅ Lightning UI Components
-✅ Apex Integration (Wire & Imperative Calls)
-✅ SOQL Queries & Dynamic Filters
-✅ Custom Events & Parent-Child Communication
-✅ Debouncing & Performance Optimization
-✅ CSS Styling & SLDS Integration
+    ✅ Data Binding & Event Handling
+    ✅ Conditional Rendering & Loops
+    ✅ Lightning UI Components
+    ✅ Apex Integration (Wire & Imperative Calls)
+    ✅ SOQL Queries & Dynamic Filters
+    ✅ Custom Events & Parent-Child Communication
+    ✅ Debouncing & Performance Optimization
+    ✅ CSS Styling & SLDS Integration
