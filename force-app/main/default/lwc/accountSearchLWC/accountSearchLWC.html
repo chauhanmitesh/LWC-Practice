@@ -1,0 +1,29 @@
+<!--
+Question:
+You need to build a custom lookup component in LWC that allows users to search for Account records dynamically as they type. The search should:
+
+Fetch results from an Apex method based on user input.
+Display the matching results in a dropdown list.
+Allow the user to select an account, which should then be displayed in an input field.
+Handle errors (e.g., if no records are found, show a message).
+-->
+
+<template>
+<lightning-card>
+    <div>
+        <lightning-input type="text" placeholder="Search Accounts..." onchange={handleSearch}></lightning-input>
+    </div>
+
+    <div if:true={showDropdown} class="slds-dropdown_length-5 slds-dropdown_fluid">
+        <ul class="slds-listbox slds-listbox_vertical">
+            <template for:each={accounts} for:item="acc">
+                <li key={acc.Id} data-id={acc.id} data-name={acc.name} onclick={handleSelect} class="slds-listbox__item">
+                    <div class="slds-media slds-listbox__option slds-listbox__option_entity">
+                        <span class="slds-truncate">{acc.Name}</span>
+                    </div>
+                </li>
+            </template>
+        </ul>
+    </div>
+</lightning-card>    
+</template>
