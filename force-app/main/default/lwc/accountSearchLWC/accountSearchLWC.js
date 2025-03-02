@@ -27,14 +27,14 @@ export default class AccountSearchLWC extends LightningElement {
                 .catch(err=>{
                     this.error = err;
                     this.showDropdown = false;
-                },300)
+                })
 
             }else{
                 this.accounts = [];
                 this.showDropdown = false;
             }
 
-        })  
+        },300)  
     }
 
     handleSelect(event){
