@@ -1,18 +1,22 @@
-# Salesforce DX Project: Next Steps
+# Daily LWC practice
+This repository contains daily Lightning Web Component (LWC) practice questions and solutions to enhance LWC skills, improve problem-solving abilities, and prepare for interviews. Each exercise covers important LWC concepts, including data binding, event handling, Apex integration, reactivity, and performance optimization.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Each problem is inside a separate LWC component folder. The folder includes:
 
-## How Do You Plan to Deploy Your Changes?
+    <component>.html → Markup for the component
+    <component>.js → JavaScript logic
+    <component>.js-meta.xml → Configuration file
+    <component>.css → External design file(optional)
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+# Topics Covered
+    ✅ Data Binding & Event Handling
+    ✅ Conditional Rendering & Loops
+    ✅ Lightning UI Components
+    ✅ Apex Integration (Wire & Imperative Calls)
+    ✅ SOQL Queries & Dynamic Filters
+    ✅ Custom Events & Parent-Child Communication
+    ✅ Debouncing & Performance Optimization
+    ✅ CSS Styling & SLDS Integration
 
-## Configure Your Salesforce DX Project
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+🚀 Happy Coding & Keep Practicing!
