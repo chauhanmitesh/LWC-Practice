@@ -3,7 +3,7 @@ import searchAccounts from '@salesforce/apex/GetAccountRecords.searchAccounts';
 
 export default class AccountSearchLWC extends LightningElement {
 
-    @track inp = '';
+    @track inp = ''; 
     @track accounts = [];
     error;
     @track showDropdown = false;
