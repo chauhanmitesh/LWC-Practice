@@ -1,0 +1,25 @@
+<!--
+Create a Lightning Web Component (LWC) that displays a countdown timer.
+
+Requirements:
+User enters a number (seconds) in an input field.
+On clicking the "Start Timer" button, the countdown begins.
+The timer updates every second and displays the remaining time.
+When the countdown reaches 0, show "Time's up!" and disable the button.
+Provide a "Reset" button to restart the countdown.
+-->
+
+<template>
+    <lightning-card>
+        <div class="slds-m-around_medium">
+            <lightning-input type="number" onchange={handleInput} disabled={isRunning}></lightning-input>
+            <div class="slds-m-top_medium">
+                <lightning-button label="Start" onclick={handleStartTimer}></lightning-button>
+                <lightning-button label="Reset" class="slds-m-left_small" onclick={handleResetTimer}></lightning-button>
+            </div>
+        </div>
+        <div class="slds-m-top_medium slds-text-heading_large">
+            <p>{displayTime}</p>
+        </div>
+    </lightning-card>
+</template>
