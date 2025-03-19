@@ -1,0 +1,36 @@
+<!--
+Question:
+Create an LWC component that displays a list of accounts with their names and industry. When a user clicks on an account, show its details below the list.
+
+Requirements:
+
+Fetch account data using Apex.
+Display the account list in a table.
+Show selected account details dynamically when a row is clicked.
+-->
+
+<template>
+<lightning-card>
+    <div>
+        <template if:true={accounts}>
+            <table>
+                <template for:each={accounts} for:item="acc">
+                    <tr key={acc.Id}>
+                        <td>{acc.Name}</td>
+                        <td><lightning-button label="View" data-id={acc.Id} onclick={handleViewClick}></lightning-button></td>
+                    </tr>
+                </template>
+            </table>
+        </template>
+    </div>
+
+    <template if:true={selectedAccount}>
+        <div class="slds-m-top_medium">
+            <p>Name: {selectedAccount.Name}</p>
+            <p>Industry: {selectedAccount.Industry}</p>
+            <p>Phone: {selectedAccount.Phone}</p>
+        </div>
+    </template>
+
+</lightning-card>    
+</template>
