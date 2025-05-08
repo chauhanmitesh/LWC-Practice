@@ -1,0 +1,17 @@
+<template>
+    <template for:each={accounts} for:item="acc">
+        <div key={acc.Id}>
+            <table>
+                <tr>
+                    <td>{acc.Name}</td>
+                    <td><lightning-button data-id={acc.Id} label={acc.buttonLabel} onclick={toggleDetails} class="slds-float_right"></lightning-button></td>
+                </tr>
+                <tr></tr>
+            </table>
+            <template if:true={acc.showDetails}>
+                <p>{acc.Industry}</p>
+                <p>{acc.Phone}</p>
+            </template>
+        </div>
+    </template>
+</template>
