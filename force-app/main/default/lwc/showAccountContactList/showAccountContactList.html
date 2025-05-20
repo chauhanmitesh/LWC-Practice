@@ -1,11 +1,36 @@
 <template>
     <lightning-card>
-        <div >
-            <table>
-                <tr>
-                    <td>{}</td>
-                    <td></td>
-                </tr>
+        <div>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr>
+                        <th>Account Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={accountData} for:item="acc">
+                    <tr key={acc.Id}>
+                        <td><strong>{acc.Name}</strong></td>
+                        <td>
+                            <lightning-button label={acc.buttonLabel} 
+                                              data-id={acc.Id} 
+                                              onclick={toggleContacts}>
+                            </lightning-button>
+                        </td>
+                    </tr>
+                    
+                        <!--Contact rows-->
+                        <template if:true={acc.showContacts}>
+                            <template for:each={acc.Contacts} for:item="con">
+                                <tr key={con.Id}>
+                                    <td class="padding-left: 2rem;">↳ {con.FullName}</td>
+                                    <td></td>
+                                </tr>
+                            </template>
+                        </template>
+                    </template>
+                </tbody>
             </table>
         </div>
     </lightning-card>
