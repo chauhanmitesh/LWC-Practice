@@ -1,0 +1,22 @@
+<!--
+Question: Parent-Child Communication & Reactivity
+You have the following scenario:
+
+A parent component (accountList) displays a list of Account records.
+
+Each Account is passed to a child component (accountCard) via @api property.
+
+In the child, there's a button to toggle showing related Contacts for that Account.
+-->
+
+<template>
+    <lightning-card title="Accounts">
+        <template for:each={accounts} for:item="acc">
+            <c-account-card
+                key={acc.Id}
+                account={acc}
+                ontogglecontacts={handleToggle}>
+            </c-account-card>
+        </template>
+    </lightning-card>
+</template>

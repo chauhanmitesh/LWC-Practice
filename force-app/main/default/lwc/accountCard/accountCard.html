@@ -1,0 +1,19 @@
+<template>
+    <lightning-card>
+        <div>
+            <p><strong>{account.Name}</strong></p>
+            <lightning-button
+                label={buttonLabel}
+                onclick={togglecontacts}>
+            </lightning-button>
+
+            <template if:true={account.showContacts}>
+                <ul>
+                    <template for:each={account.Contacts} for:item="con">
+                        <li key={con.Id}>{con.FullName}</li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+</template>
