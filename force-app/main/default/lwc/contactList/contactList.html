@@ -1,0 +1,9 @@
+<template>
+    <template for:each={contacts} for:item="contact">
+        <c-contact-row
+            key={contact.Id}
+            contact={contact}
+            onfavorite={handleFavoriteEvent}>
+        </c-contact-row>
+    </template>    
+</template>
