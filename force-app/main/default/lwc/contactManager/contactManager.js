@@ -12,12 +12,26 @@ export default class ContactManager extends LightningElement {
                 isFavorite: false
             }));
 
-            console.log("inside getcontacts", JSON.stringify(this.contacts));
+            //console.log("inside getcontacts", JSON.stringify(this.contacts));
         })
         .catch((error =>{
             console.log("Error fetching contacts", error);
         }));
     }
+
+
+     handleFavoriteToggle(event) {
+        const contactId = event.detail;
+        this.contacts = this.contacts.map(contact => {
+            if (contact.Id === contactId) {
+                return {
+                    ...contact,
+                    isFavorite: !contact.isFavorite
+                };
+            }
+            return contact;
+        });
+    }    
 
     
     
