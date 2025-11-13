@@ -1,0 +1,60 @@
+<!--
+Question
+
+Build a Lightning Web Component that fetches data from the backend using @wire with parameters.
+
+Requirements:
+    Show a search input where the user can type an Account name (or partial name).
+    On typing, call an Apex method with that search term.
+    Display the list of matching Accounts (Name + Industry) in a table.
+    If no results are found, show a friendly “No Accounts Found” message.
+    
+-->
+<template>
+    <lightning-card title="Account Search" icon-name="standard:account">
+        <div>
+            <lightning-input
+                label="Search Accounts"
+                type="text"
+                value={searchKey}
+                onchange={handleSearchChange}>
+            </lightning-input>
+
+            <template if:true={accounts.data}>
+                <template if:true={accounts.data.length}>
+                    <table class="slds-table slds-table_bordered slds-m-top_medium">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Industry</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={accounts.data} for:item="acc">
+                                <tr key={acc.Id}>
+                                    <td>{acc.Name}</td>
+                                    <td>{acc.Industry}</td>
+                                    <td>{acc.Phone}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
+                
+                <template if:false={accounts.data.length}>
+                <p class="slds-text-color_weak slds-m-top_medium">
+                    No Accounts Found.
+                </p>
+            </template>
+            
+            </template>
+
+            <template if:true={accounts.error}>
+                <p class="slds-text-color_error slds-m-top_medium">
+                    Error retrieving accounts: {accounts.error.message}
+                </p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
