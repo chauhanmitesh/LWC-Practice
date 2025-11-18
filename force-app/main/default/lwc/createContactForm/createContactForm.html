@@ -1,0 +1,24 @@
+<!-- Question: Imperative Apex + Record Creation
+
+Build a Lightning Web Component that:
+Displays a form to create a new Contact with: First Name, Last Name, Email, Account Name (searchable dropdown using Apex)
+On clicking Save, call an Apex method imperatively to create the Contact.
+After successful creation, show a toast message and clear the form.
+
+-->
+
+<template>
+    <lightning-card icon-name="standard:contact">
+        <div>
+            <lightning-input type="text" label="First Name" value={firstName} data-field="firstName" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="text" label="Last Name" value={lastName} data-field="lastName" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="email" label="Email Address" value={email} data-field="email" onchange={handleInputChange}></lightning-input>
+            
+            <lightning-input label="Search Account" value={searchKey} data-field="searchKey" onchange={handleAccountSearch}></lightning-input>
+            <template if:true={accountOptions.length}>
+            <lightning-combobox label="Select Account" value={selectedAccountId} placeholder="Select Account" options={accountOptions} onchange={handleAccountSelect}> </lightning-combobox>
+            </template><br/>
+            <lightning-button label="Save" onclick={saveContact}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

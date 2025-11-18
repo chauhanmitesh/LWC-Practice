@@ -14,4 +14,17 @@ public with sharing class GetContactRecords {
         return [SELECT Id, FirstName, LastName, Email FROM Contact LIMIT 10];
     }
     
+    @AuraEnabled(cacheable=true)
+    public static contact createContact(String firstName, String lastName, String email, Id accountId){
+     	Contact con = new Contact(
+        firstName = firstName,
+        lastName = lastName,
+        email = email,
+        AccountId = accountId);
+        
+        insert con;
+        
+        return con;   
+    }
+    
 }
