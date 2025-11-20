@@ -1,0 +1,31 @@
+<!--
+Question of the Day: Navigation + URL State Management
+
+You are building a component that shows a list of Accounts.
+When the user clicks an Account name:
+    The component should navigate to a second LWC (AccountDetails).
+    It should pass the Account Id through the URL (e.g., …/AccountDetailPage?recordId=001ABC…).
+    The AccountDetails component should read that URL param and fetch account details through Apex.
+
+-->
+<template>
+    <lightning-card title="Accounts List">
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="acc">
+                <p key={acc.Id}>
+                    <lightning-button
+                        label={acc.Name}
+                        variant="base"
+                        data-id={acc.Id}
+                        onclick={handleNavigate}>
+                    </lightning-button>
+                </p>
+            </template>
+        </template>
+
+        <template if:true={error}>
+            <p>Error loading accounts</p>
+        </template>
+    </lightning-card>
+    
+</template>

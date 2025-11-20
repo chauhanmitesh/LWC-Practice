@@ -1,4 +1,5 @@
 public with sharing class GetAccountRecords {
+    
     @AuraEnabled(Cacheable=true)
     public static List<Account> getRecords(){
         System.debug('Inside method');
@@ -7,6 +8,11 @@ public with sharing class GetAccountRecords {
         return acclst;
     }
 
+    @AuraEnabled(Cacheable=true)
+    public static List<Account> getAccountsWithDetails(){
+		List<Account> acclst = [Select id, name, Industry, Phone from Account limit 5];
+		return acclst;        
+    }
 
     @AuraEnabled(Cacheable=true)
     public static List<AccountWrapper> getAccWrapper(){
@@ -40,7 +46,16 @@ public with sharing class GetAccountRecords {
         system.debug('acclst '+acclst);
         return acclst;
     }
-    	
+    
+    @AuraEnabled(cacheable=true)
+    public static Account getAccountDetails(Id accountId) {
+        return [
+            SELECT Id, Name, Industry, Phone
+            FROM Account
+            WHERE Id = :accountId
+        ];
+    }
+    
     public class AccountWrapper{
         @AuraEnabled
         public Account accRecord{get;set;}
