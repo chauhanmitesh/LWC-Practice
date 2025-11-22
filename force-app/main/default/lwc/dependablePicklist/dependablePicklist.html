@@ -1,0 +1,48 @@
+<!--
+
+Build an LWC that displays two dependent dropdowns (picklists) without calling Apex.
+
+Requirements:
+Parent picklist = Country
+Child picklist = State
+When user selects a Country, only the valid States for that Country should appear.
+Disable the State picklist until a Country is selected.
+Show a small card below displaying the selected Country & State.
+All data should come from a static JS object (no Apex, no LDS).
+
+-->
+
+<template>
+    <lightning-card title="Dependent Picklists">
+        <lightning-combobox
+            name="country"
+            label="select country"
+            value={selectedCountry}
+            placeholder="choose country"
+            options={countryOptions}
+            onchange={handleCountryChange}>
+        </lightning-combobox>
+
+        <lightning-combobox
+            name="state"
+            label="select State"
+            value={selectedState}
+            options={stateOptions}
+            onchange={handleStateChange}
+            disabled={isStateDisabled}>
+        </lightning-combobox>
+
+
+        <template if:true={selectedState}>
+            <div class="slds-m-top_medium">
+                <lightning-card title="Selected Values">
+                    <p class="slds-p-around_medium">
+                        <b>Country: </b>{selectedCountry}<br/>
+                        <b>State: </b>{selectedState}
+                    </p>
+                </lightning-card>
+            </div>
+        </template>
+    </lightning-card>
+
+</template>
