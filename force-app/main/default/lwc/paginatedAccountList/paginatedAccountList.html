@@ -1,0 +1,53 @@
+<!--
+Question 4: Build a Paginated Account List (Without Apex Paging)
+
+You need to build an LWC that:
+Requirements
+    Fetches all Account records using a single Apex method.
+    Displays them in a table 5 records per page.
+    Has Next and Previous buttons.
+    Shows Page X of Y.
+    Disables buttons when:
+        You're on page 1 → disable Previous
+        You're on last page → disable Next
+    When a user clicks an Account Name, show an alert: "Selected Account: <Name>"
+-->
+
+<template>
+    <lightning-card title="Paginated Account List">
+        <table class="slds-table slds-table_cell-buffer">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Industry</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <template for:each={pageAccounts} for:item="acc">
+                    <tr key={acc.Id}>
+                        <td>{acc.Name}</td>
+                        <td>{acc.Industry}</td>
+                        <td>{acc.Phone}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+        <div>
+            <lightning-button label="Previous"
+                              onclick={handlePrevious}
+                              disabled={disablePrevious}>
+            </lightning-button>
+
+            <span class="slds-m-left_small slds-m-right_small">
+                Page {pageNumber} of {totalPages}
+            </span>
+
+            <lightning-button label="Next"
+                              onclick={handleNext}
+                              disabled={disableNext}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
