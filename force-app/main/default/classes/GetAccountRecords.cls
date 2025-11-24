@@ -10,7 +10,7 @@ public with sharing class GetAccountRecords {
 
     @AuraEnabled(Cacheable=true)
     public static List<Account> getAccountsWithDetails(){
-		List<Account> acclst = [Select id, name, Industry, Phone from Account limit 5];
+		List<Account> acclst = [Select id, name, Industry, Phone from Account];
 		return acclst;        
     }
 
