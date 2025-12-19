@@ -1,0 +1,30 @@
+<template>
+    <lightning-card>
+        <div>
+            <h2>current counter: {count}</h2>
+
+            <div class="slds-m-top_medium">
+                <lightning-button
+                    label="Decrement"
+                    onclick={handleDecrement}
+                    disabled={isDecrementDisabled}>
+                </lightning-button>
+
+                <lightning-button
+                    class="slds-m-left_small"
+                    label="Increment"
+                    onclick={handleIncrement}>
+                </lightning-button>
+
+                <lightning-button
+                class="slds-m-left_small"
+                label="Reset"
+                onclick={handleReset}>
+                </lightning-button>
+            </div>
+            <template if:true={showMessage}>
+                <p>Great! You reached 10!</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

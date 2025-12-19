@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Real Time Text Display">
+        <div>
+            <lightning-input
+                label="Type something"
+                type="text"
+                value={inputText}
+                onchange={handleChange}>
+
+            </lightning-input>
+
+            <div>
+                <template if:true={hasText}>
+                    <p>You typed: {inputText}</p>
+                </template>
+
+                <template if:false={hasText}>
+                    <p>Nothing to display</p>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
